@@ -13,6 +13,11 @@ Each extension is organized in its own directory with full source code, `manifes
 Adds proper right-to-left (RTL) support for chat and messages on [claude.ai](https://claude.ai).  
 Useful for Persian/Arabic users to display content in a more readable format.
 
+
+#### 2. [Trello.com RTL Fix](./trello.com-rtl)
+
+Enhances [trello.com](https://trello.com) with right-to-left (RTL) text support for Persian and Arabic content.  
+Automatically detects and applies proper RTL formatting to card titles, descriptions, and comments.
 ---
 
 _More extensions coming soon..._
