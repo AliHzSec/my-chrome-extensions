@@ -7,7 +7,8 @@
             '.list-disc',
             '.whitespace-pre-wrap.break-words',
             '.text-lg.font-bold.text-text-100.mt-1',
-            '.text-xl.font-bold.text-text-100.mt-1'
+            '.text-xl.font-bold.text-text-100.mt-1',
+            '.grid-cols-1',
         ],
 
         // User input field
