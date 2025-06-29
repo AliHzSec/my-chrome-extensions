@@ -9,6 +9,7 @@
             '.ak-renderer-document',
             '.ibk99ptVTfUfda',
             '.ak-editor-content-area',
+	    '.NdQKKfeqJDDdX3',
         ],
     };
 
