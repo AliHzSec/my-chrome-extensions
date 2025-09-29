@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     </button>
                 </div>
             `;
-            DotGit
+
             // Add event listener to copy button
             const copyBtn = siteDiv.querySelector('.copy-btn');
             copyBtn.addEventListener('click', (e) => {
