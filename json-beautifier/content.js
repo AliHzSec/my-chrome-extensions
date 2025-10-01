@@ -224,6 +224,8 @@
 
     preElement.remove();
 
+    document.body.classList.add('jf-formatted');
+
     // Inject CSS
     const cssLink = document.createElement("link");
     cssLink.rel = "stylesheet";

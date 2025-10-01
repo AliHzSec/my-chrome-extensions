@@ -28,19 +28,19 @@
     --jf-error: #ff7b72;
 }
 
-body {
+body.jf-formatted {
     background-color: var(--jf-bg);
     color: var(--jf-text);
     margin: 0;
     padding: 0;
-    font-family: 'FantasqueSansM Nerd Font Mono', 'Consolas', 'Monaco', 'Courier New', 'Vazirmatn', monospace, system-ui, -apple-system, sans-serif;
+    font-family: 'FantasqueSansM Nerd Font Mono', 'Consolas', 'Monaco', 'Courier New', 'Vazirmatn', 'monospace', 'system-ui', '-apple-system', 'sans-serif';
     font-size: 15px;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-* {
+body.jf-formatted * {
     box-sizing: border-box;
 }
 
@@ -82,7 +82,7 @@ body {
 
 .jf-query-input {
     flex: 1;
-    width: 100%;       /* پر کردن فضای آزاد */
+    width: 100%;
     background: var(--jf-input-bg);
     border: 1px solid var(--jf-input-border);
     border-radius: 6px;

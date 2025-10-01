@@ -29,9 +29,6 @@
          "js": [
             "content.js"
          ],
-         "css": [
-            "content.css"
-         ],
          "matches": [
             "<all_urls>"
          ],
