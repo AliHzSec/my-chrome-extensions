@@ -25,8 +25,8 @@ if (typeof window.dotGitInjected === 'undefined') {
     const PATTERNS = {
         git: {
             head: {
-                header: "ref: refs/heads/",
-                regex: /[a-f0-9]{40}/
+                ref: /^ref:\s*refs\/(heads|tags|remotes)\//m,
+                hash: /^[a-f0-9]{40}$/m
             },
             config: {
                 patterns: [/\[gc/, /\[core/, /\[user/, /\[http/, /\[remote/, /\[branch/, /\[credentials/],
@@ -74,7 +74,7 @@ if (typeof window.dotGitInjected === 'undefined') {
                 const headText = await headResponse.text();
                 debugLog('Git HEAD content:', headText);
 
-                if (headText.startsWith(PATTERNS.git.head.header) || PATTERNS.git.head.regex.test(headText)) {
+                if (PATTERNS.git.head.ref.test(headText) || PATTERNS.git.head.hash.test(headText)) {
                     debugLog('Git repository found via HEAD!');
                     return true;
                 }
