@@ -1,0 +1,387 @@
+:root {
+    --jf-bg: #0d1117;
+    --jf-text: #c9d1d9;
+    --jf-key: #58a6ff;
+    --jf-string: #7ee787;
+    --jf-number: #ff7b72;
+    --jf-boolean: #d2a8ff;
+    --jf-null: #8b949e;
+    --jf-brace: #c9d1d9;
+    --jf-bracket: #c9d1d9;
+    --jf-quote: #8b949e;
+    --jf-expander: #8b949e;
+    --jf-expander-hover: #ffffff;
+    --jf-border: #30363d;
+    --jf-comment: #8b949e;
+    --jf-link: #58a6ff;
+    --jf-link-hover: #79c0ff;
+    --jf-btn-bg: #161b22;
+    --jf-btn-border: #30363d;
+    --jf-btn-text: #c9d1d9;
+    --jf-btn-hover-bg: #21262d;
+    --jf-btn-active-bg: #0d1117;
+    --jf-btn-active-border: #58a6ff;
+    --jf-btn-active-text: #58a6ff;
+    --jf-input-bg: #0d1117;
+    --jf-input-border: #30363d;
+    --jf-input-focus-border: #58a6ff;
+    --jf-error: #ff7b72;
+}
+
+body {
+    background-color: var(--jf-bg);
+    color: var(--jf-text);
+    margin: 0;
+    padding: 0;
+    font-family: 'FantasqueSansM Nerd Font Mono', 'Consolas', 'Monaco', 'Courier New', 'Vazirmatn', monospace, system-ui, -apple-system, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#jf-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--jf-bg);
+    border-bottom: 2px solid var(--jf-border);
+    padding: 12px 16px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.jf-query-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+}
+
+.jf-query-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    max-width: 1000px;
+    width: 100%;
+    grid-column: 1;
+    justify-self: start;
+}
+
+.jf-query-input {
+    flex: 1;
+    width: 100%;       /* پر کردن فضای آزاد */
+    background: var(--jf-input-bg);
+    border: 1px solid var(--jf-input-border);
+    border-radius: 6px;
+    color: var(--jf-text);
+    padding: 8px 12px;
+    font-size: 13px;
+    font-family: 'Consolas', 'Monaco', monospace;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.jf-query-input:focus {
+    border-color: var(--jf-input-focus-border);
+    box-shadow: 0 0 0 2px rgba(88, 166, 255, 0.1);
+}
+
+.jf-query-input::placeholder {
+    color: var(--jf-comment);
+}
+
+.jf-query-input.jf-query-error {
+    border-color: var(--jf-error);
+}
+
+.jf-query-hint {
+    font-size: 11px;
+    color: var(--jf-comment);
+    font-family: system-ui, -apple-system, sans-serif;
+    white-space: nowrap;
+}
+
+.jf-raw-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--jf-text);
+    font-family: system-ui, -apple-system, sans-serif;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+}
+
+.jf-raw-checkbox input[type="checkbox"] {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--jf-btn-active-border);
+}
+
+.jf-query-error-msg {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 4px;
+    padding: 6px 10px;
+    background: var(--jf-error);
+    color: #0d1117;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: system-ui, -apple-system, sans-serif;
+    white-space: nowrap;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.jf-copy-btn {
+    border: 1px solid var(--jf-btn-border);
+    background: var(--jf-btn-bg);
+    color: var(--jf-btn-text);
+    padding: 8px 20px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: system-ui, -apple-system, sans-serif;
+    outline: none;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    grid-column: 2;
+    justify-self: center;
+}
+
+.jf-copy-btn:hover {
+    background: var(--jf-btn-hover-bg);
+}
+
+.jf-copy-btn:active {
+    transform: scale(0.95);
+}
+
+.jf-copy-btn.jf-copied {
+    background: var(--jf-btn-active-bg);
+    color: var(--jf-btn-active-text);
+    border-color: var(--jf-btn-active-border);
+}
+
+.jf-btn-group {
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    grid-column: 3;
+    justify-self: end;
+}
+
+.jf-btn {
+    border: 1px solid var(--jf-btn-border);
+    background: var(--jf-btn-bg);
+    color: var(--jf-btn-text);
+    padding: 8px 20px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: system-ui, -apple-system, sans-serif;
+    outline: none;
+    position: relative;
+}
+
+.jf-btn:first-child {
+    border-right: none;
+}
+
+.jf-btn:hover:not(.jf-btn-active) {
+    background: var(--jf-btn-hover-bg);
+}
+
+.jf-btn.jf-btn-active {
+    background: var(--jf-btn-active-bg);
+    color: var(--jf-btn-active-text);
+    border-color: var(--jf-btn-active-border);
+    font-weight: 600;
+    z-index: 1;
+}
+
+#jf-parsed {
+    padding: 20px 24px;
+}
+
+#jf-parsed.jf-raw-output {
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    line-height: 1.8;
+}
+
+#jf-parsed.jf-raw-output .jf-entry {
+    padding-left: 0;
+}
+
+#jf-parsed.jf-raw-output .jf-expander,
+#jf-parsed.jf-raw-output .jf-quote,
+#jf-parsed.jf-raw-output .jf-brace,
+#jf-parsed.jf-raw-output .jf-bracket,
+#jf-parsed.jf-raw-output .jf-comma,
+#jf-parsed.jf-raw-output .jf-block-inner {
+    display: none;
+}
+
+#jf-parsed.jf-raw-output .jf-string,
+#jf-parsed.jf-raw-output .jf-number,
+#jf-parsed.jf-raw-output .jf-boolean,
+#jf-parsed.jf-raw-output .jf-null {
+    color: var(--jf-text);
+    font-weight: normal;
+}
+
+#jf-raw {
+    padding: 20px 24px;
+}
+
+#jf-raw pre {
+    margin: 0;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 13px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.jf-entry {
+    display: block;
+    position: relative;
+    padding-left: 20px;
+    margin-left: 0;
+}
+
+.jf-entry.jf-collapsed {
+    white-space: nowrap;
+}
+
+.jf-entry.jf-collapsed>.jf-block-inner {
+    display: none;
+}
+
+.jf-entry.jf-collapsed>.jf-ellipsis::after {
+    content: '…';
+    color: var(--jf-comment);
+    font-weight: bold;
+    margin: 0 6px;
+}
+
+.jf-entry.jf-collapsed::after {
+    content: '  // ' attr(data-count) ' ' attr(data-label);
+    color: var(--jf-comment);
+    font-size: 12px;
+    margin-left: 8px;
+}
+
+.jf-expander {
+    position: absolute;
+    left: 0;
+    top: 4px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    color: var(--jf-expander);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+    user-select: none;
+}
+
+.jf-expander::before {
+    content: '▼';
+    font-size: 10px;
+    display: block;
+}
+
+.jf-collapsed>.jf-expander::before {
+    content: '▶';
+}
+
+.jf-expander:hover {
+    color: var(--jf-expander-hover);
+    transform: scale(1.2);
+}
+
+.jf-block-inner {
+    display: block;
+    margin-left: 20px;
+    border-left: 1px solid var(--jf-border);
+    padding-left: 12px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.jf-key {
+    color: var(--jf-key);
+    font-weight: 600;
+}
+
+.jf-string {
+    color: var(--jf-string);
+    word-break: break-word;
+}
+
+.jf-string a {
+    color: var(--jf-link);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--jf-link);
+}
+
+.jf-string a:hover {
+    color: var(--jf-link-hover);
+    border-bottom-style: solid;
+}
+
+.jf-number {
+    color: var(--jf-number);
+    font-weight: 600;
+}
+
+.jf-boolean {
+    color: var(--jf-boolean);
+    font-weight: 600;
+}
+
+.jf-null {
+    color: var(--jf-null);
+    font-style: italic;
+    font-weight: 600;
+}
+
+.jf-brace,
+.jf-bracket {
+    color: var(--jf-brace);
+    font-weight: bold;
+}
+
+.jf-quote {
+    color: var(--jf-quote);
+}
+
+.jf-colon {
+    color: var(--jf-text);
+}
+
+[hidden] {
+    display: none !important;
+}
