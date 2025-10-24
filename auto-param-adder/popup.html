@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Parameter Adder</title>
+    <link rel="stylesheet" href="css/icon.css">
+    <link rel="stylesheet" href="css/popup.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>URL Parameters</h1>
+            <label class="toggle-switch">
+                <input type="checkbox" id="extensionToggle">
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+
+        <div class="input-section">
+            <input type="text" id="paramInput" placeholder="mykey=myvalue" autocomplete="off">
+            <button id="addBtn" class="btn-add">
+                <span class="material-icons">add</span>
+                Add
+            </button>
+        </div>
+
+        <div class="params-list" id="paramsList">
+            <!-- Parameters will be added here dynamically -->
+        </div>
+
+        <div class="footer">
+            <span id="statusMessage"></span>
+        </div>
+    </div>
+
+    <script src="js/popup.js"></script>
+</body>
+
+</html>
